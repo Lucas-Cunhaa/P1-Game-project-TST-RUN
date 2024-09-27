@@ -1,16 +1,17 @@
 import curses
-from index import home_page
 
-def profile_window(stdscr):
+
+def window_profile(stdscr):
+    from index import home_page
     stdscr.clear()
 
     stdscr.addstr(0, 0, "Your profile") 
     stdscr.addstr(1, 0, "Change your avatar")
-    stdscr.addstr(1, 0, "Change your name")
+    stdscr.addstr(2, 0, "Change your name")
 
     stdscr.refresh()
 
-    esc = curses.KEY_ESC
+    esc = curses.KEY_EIC
     while True:
         key = stdscr.getch()
         if key == esc:
