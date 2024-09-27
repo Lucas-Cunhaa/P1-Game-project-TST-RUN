@@ -11,7 +11,7 @@ def window_profile(stdscr):
 
     stdscr.refresh()
 
-    esc = curses.KEY_EIC
+    esc = 10
     while True:
         key = stdscr.getch()
         if key == esc:
