@@ -1,5 +1,6 @@
 import curses
-import home_page from index.py
+from index import home_page
+
 def profile_window(stdscr):
     stdscr.clear()
 
