@@ -1,6 +1,6 @@
 import curses
-import profile_window from window.py
-import game_window from window.py
+import profile_window from window_profile.py
+import game_window from window_game.py
 
 def home_page(stdscr):
     profile_window(stdscr)
