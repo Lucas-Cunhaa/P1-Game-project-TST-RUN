@@ -11,10 +11,10 @@ def window_profile(stdscr):
 
     stdscr.refresh()
 
-    esc = 10
+    esc = 27
     while True:
         key = stdscr.getch()
         if key == esc:
-            home_page(stdscr)
+            (stdscr)
             break 
 
