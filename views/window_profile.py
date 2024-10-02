@@ -1,19 +1,20 @@
 import curses
 
-
-def window_profile(stdscr):
+def window_profile(stdscr, win):
     from index import home_page
     stdscr.clear()
-
-    stdscr.addstr(0, 0, "Your profile") 
-    stdscr.addstr(1, 0, "Change your avatar")
-    stdscr.addstr(2, 0, "Change your name")
-
     stdscr.refresh()
-
+    win.clear()
+    win.box()
+    
+    win.addstr(1, 1, "Your profile")
+    win.addstr(2, 1, "Change your avatar")
+    win.addstr(3, 1, "Change your name")
+    win.refresh()
+     
     esc = 27
     while True:
-        key = stdscr.getch()
+        key = win.getch()
         if key == esc:
             home_page(stdscr)
             break 

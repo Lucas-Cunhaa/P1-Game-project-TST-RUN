@@ -7,16 +7,25 @@ def home_page(stdscr):
     
     max_height, max_width = stdscr.getmaxyx()
 
-    stdscr.addstr(max_height // 2, max_width // 2, "GAME: TST-RUN")
-    stdscr.addstr((max_height // 2) + 1, max_width // 2, "Press '1' to start the game")
-    stdscr.addstr((max_height // 2) + 2, max_width // 2, "Press '2' to change profile")
+    height = 10  # Altura da janela
+    width = 40   # Largura da janela
+    starty = (max_height - height) // 2  # Centraliza verticalmente
+    startx = (max_width - width) // 2
+    
+    win = curses.newwin(height, width, starty, startx)
+    # Desenha bordas na janela
+    win.box()
 
-    stdscr.refresh()
+    win.addstr(1, 1, "GAME: TST-RUN")
+    win.addstr(2, 1, "Press '1' to start the game")
+    win.addstr(3, 1, "Press '2' to change profile")
+    win.refresh()
+    
     KEY_1 = 49
     KEY_2 = 50
     while True: 
-        key = stdscr.getch()
-        if key == KEY_2: window_profile(stdscr)
+        key = win.getch()
+        if key == KEY_2: window_profile(stdscr, win)
     # elif key == KEY_1: game_window(stdscr) 
     
 def main(stdscr):
