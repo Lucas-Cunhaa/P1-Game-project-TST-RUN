@@ -4,10 +4,12 @@ from window_profile import window_profile
 
 def home_page(stdscr):
     stdscr.clear()
+    
+    max_height, max_width = stdscr.getmaxyx()
 
-    stdscr.addstr(0, 0, "GAME: TST-RUN")
-    stdscr.addstr(1, 0, "Press '1' to start the game")
-    stdscr.addstr(2, 0, "Press '2' to change profile")
+    stdscr.addstr(max_height // 2, max_width // 2, "GAME: TST-RUN")
+    stdscr.addstr((max_height // 2) + 1, max_width // 2, "Press '1' to start the game")
+    stdscr.addstr((max_height // 2) + 2, max_width // 2, "Press '2' to change profile")
 
     stdscr.refresh()
     KEY_1 = 49
