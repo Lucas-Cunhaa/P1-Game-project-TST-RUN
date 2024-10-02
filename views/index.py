@@ -17,8 +17,8 @@ def home_page(stdscr):
     win.box()
 
     win.addstr(1, 1, "GAME: TST-RUN")
-    win.addstr(2, 1, "Press '1' to start the game")
-    win.addstr(3, 1, "Press '2' to change profile")
+    win.addstr(3, 1, "Press '1' to start the game")
+    win.addstr(4, 1, "Press '2' to change profile")
     win.refresh()
     
     KEY_1 = 49

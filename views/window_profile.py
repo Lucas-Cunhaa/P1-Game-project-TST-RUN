@@ -8,8 +8,8 @@ def window_profile(stdscr, win):
     win.box()
     
     win.addstr(1, 1, "Your profile")
-    win.addstr(2, 1, "Change your avatar")
-    win.addstr(3, 1, "Change your name")
+    win.addstr(3, 1, "Change your avatar")
+    win.addstr(4, 1, "Change your name")
     win.refresh()
      
     esc = 27
