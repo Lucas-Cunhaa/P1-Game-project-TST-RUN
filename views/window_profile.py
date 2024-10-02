@@ -15,7 +15,6 @@ def window_profile(stdscr, win):
     esc = 27
     while True:
         key = win.getch()
-        if key == esc:
-            home_page(stdscr)
-            break 
+        if key == esc: return home_page(stdscr)
+             
 
