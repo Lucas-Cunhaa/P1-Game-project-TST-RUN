@@ -1,8 +1,8 @@
 import curses
-from views.index import home_page
-from views.window_profile import window_profile
 
 def text(win, mensage, stdscr): 
+    from views.window_home import home_page
+    from views.window_profile import window_profile
     text = ""
     while True:
         win.addstr(1, len(mensage), text, curses.color_pair(1))
@@ -15,7 +15,7 @@ def text(win, mensage, stdscr):
         KEY_ENTER = 10
         if key == KEY_ESC: 
             return home_page(stdscr)
-        elif key == KEY_BACKSPACE:
+        elif key == KEY_BACKSPACE or key == curses.KEY_BACKSPACE:
             text = text[:-1]
         elif key == KEY_ENTER: 
             break

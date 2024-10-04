@@ -1,7 +1,7 @@
 import curses
 
 def window_profile(stdscr, win):
-    from index import home_page
+    from .window_home import home_page
     from controler.text import text
     stdscr.clear()
     stdscr.refresh()

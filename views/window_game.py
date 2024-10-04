@@ -1,7 +1,7 @@
 import curses
 
 def game_window(stdscr, win):
-    from index import home_page
+    from .window_home import home_page
     stdscr.clear()
     stdscr.refresh()
     win.clear()
