@@ -1,19 +1,20 @@
 import curses
 
-def home_page(stdscr, name_profile):
+def home_page(stdscr, name_profile, start_game):
     from .window_profile import window_profile 
     from .window_game import game_window 
+    if start_game == True: return
     stdscr.clear()
     
     max_height, max_width = stdscr.getmaxyx()
 
-    height = 10  # Altura da janela
-    width = 40   # Largura da janela
-    starty = (max_height - height) // 2  # Centraliza verticalmente
-    startx = (max_width - width) // 2
+    height = 10 
+    width = 40   
+    start_y = (max_height - height) // 2  
+    start_x = (max_width - width) // 2
     
-    win = curses.newwin(height, width, starty, startx)
-    # Desenha bordas na janela
+    win = curses.newwin(height, width, start_y, start_x)
+    
     win.box()
 
     win.addstr(1, 1, "GAME: TST-RUN")
@@ -25,5 +26,7 @@ def home_page(stdscr, name_profile):
     KEY_2 = 50
     while True: 
         key = win.getch()
-        if key == KEY_2: return window_profile(stdscr, win, name_profile)
-        elif key == KEY_1: return game_window(stdscr, win, name_profile)       
+        if key == KEY_2: 
+            return window_profile(stdscr, win, name_profile)
+        elif key == KEY_1: 
+            return game_window(stdscr, win, name_profile)    

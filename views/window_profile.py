@@ -19,4 +19,4 @@ def window_profile(stdscr, win, name_profile):
     ESC = 27 
     while True:
         key = win.getch()
-        if key == ESC: return home_page(stdscr, name_profile)
+        if key == ESC: return home_page(stdscr, name_profile, start_game= False)

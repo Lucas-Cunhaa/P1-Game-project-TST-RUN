@@ -7,14 +7,15 @@ def game_window(stdscr, win, name_profile):
     win.clear()
     win.box()
     win.addstr(1, 1, f"Your profile: {name_profile}")
-    win.addstr(2, 1, "ola")
+    win.addstr(2, 1, "Press 'enter' to start the game")
     win.refresh()
 
-    ESC = 27 
+    KEY_ESC = 27 
+    KEY_ENTER = 10
     while True:
         key = stdscr.getch()
-        if key == ESC: return home_page(stdscr, name_profile)
-        
+        if key == KEY_ESC: return home_page(stdscr, name_profile, start_game= False)
+        if key == KEY_ENTER: return home_page(stdscr, name_profile, start_game= True)
 
 
 
