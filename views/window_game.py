@@ -13,7 +13,7 @@ def game_window(stdscr, win, name_profile):
     KEY_ESC = 27 
     KEY_ENTER = 10
     while True:
-        key = stdscr.getch()
+        key = win.getch()
         if key == KEY_ESC: return home_page(stdscr, name_profile, start_game= False)
         if key == KEY_ENTER: return home_page(stdscr, name_profile, start_game= True)
 

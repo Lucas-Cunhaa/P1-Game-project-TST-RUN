@@ -18,7 +18,7 @@ def home_page(stdscr, name_profile, start_game):
     win.box()
 
     win.addstr(1, 1, "GAME: TST-RUN")
-    win.addstr(3, 1, "Press '1' to start the game")
+    win.addstr(3, 1, "Press '1' to the window_game")
     win.addstr(4, 1, "Press '2' to change profile")
     win.refresh()
     
