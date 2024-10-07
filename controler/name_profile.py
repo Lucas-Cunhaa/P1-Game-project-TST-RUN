@@ -1,14 +1,14 @@
 import curses
 
-def text(win, mensage, stdscr): 
+def new_name(win, mensage, stdscr, name_profile): 
     from views.window_home import home_page
     from views.window_profile import window_profile
-    text = ""
+    new_name = ""
     while True:
         win.clear() 
         win.box()
-        win.addstr(1, 1, mensage, curses.color_pair(1))
-        win.addstr(1, len(mensage) + 1, text, curses.color_pair(1))
+        win.addstr(1, 1, mensage)
+        win.addstr(1, len(mensage) + 1, new_name)
         win.refresh()
 
         key = win.getch() 
@@ -17,13 +17,13 @@ def text(win, mensage, stdscr):
         KEY_BACKSPACE = 8
         KEY_ENTER = 10
         if key == KEY_ESC: 
-            return home_page(stdscr)
+            return home_page(stdscr, name_profile)
         elif key == KEY_BACKSPACE:
-            text = text[:-1]
+            new_name = new_name[:-1]
         elif key == KEY_ENTER: 
             break
         else:
             if chr(key).isprintable():
-                text += chr(key)
-
-    return text
+                new_name += chr(key)
+    
+    return new_name

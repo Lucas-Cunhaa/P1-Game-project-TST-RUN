@@ -1,6 +1,6 @@
 import curses
 
-def home_page(stdscr):
+def home_page(stdscr, name_profile):
     from .window_profile import window_profile 
     from .window_game import game_window 
     stdscr.clear()
@@ -25,5 +25,5 @@ def home_page(stdscr):
     KEY_2 = 50
     while True: 
         key = win.getch()
-        if key == KEY_2: return window_profile(stdscr, win)
-        elif key == KEY_1: return game_window(stdscr, win)       
+        if key == KEY_2: return window_profile(stdscr, win, name_profile)
+        elif key == KEY_1: return game_window(stdscr, win, name_profile)       

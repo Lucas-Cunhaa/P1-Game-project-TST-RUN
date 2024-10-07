@@ -1,22 +1,22 @@
 import curses
 
-def window_profile(stdscr, win):
+def window_profile(stdscr, win, name_profile):
     from .window_home import home_page
-    from controler.text import text
+    from controler.name_profile import new_name
     stdscr.clear()
     stdscr.refresh()
     win.clear()
     win.box()
     
-    # Configurações de cor
-    curses.start_color()  # Inicializa o uso de cores
-    curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)  # Texto branco, fundo preto
-
     mensage = "Your profile: > " 
-    profile = text(win, mensage, stdscr)
-    win.addstr(3, 1, f"Name Profile: {profile}", curses.color_pair(1))
-    win.addstr(4, 1, "Change your avatar", curses.color_pair(1))
-    win.addstr(5, 1, "Change your name", curses.color_pair(1))
+    new_name = new_name(win, mensage, stdscr, name_profile)
+    if new_name.isprintable() and new_name != "": name_profile = new_name
+    win.addstr(3, 1, f"Name Profile: {name_profile}")
+    win.addstr(4, 1, "Change your avatar")
+    win.addstr(5, 1, "Change your name")
     win.refresh()
-     
-    win.getch()
+    
+    ESC = 27 
+    while True:
+        key = win.getch()
+        if key == ESC: return home_page(stdscr, name_profile)
