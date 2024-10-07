@@ -23,7 +23,6 @@ def text(win, mensage, stdscr):
         elif key == KEY_ENTER: 
             break
         else:
-            # Adiciona a tecla pressionada ao perfil, se não for um caractere de controle
             if chr(key).isprintable():
                 text += chr(key)
 
