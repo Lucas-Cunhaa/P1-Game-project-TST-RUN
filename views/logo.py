@@ -7,3 +7,12 @@ name_game = '''
    .    ..@@   .@@@@@@:. :@@..   .  *@@  . @@% .@@@@@@.  @@+  -@@.     ..
     .          .  .       .    . ..      .         .   . .         ..                  
 ''' 
+profile_image = '''                                           
+        XXXXXX      
+        XXXXXX      
+   X    XXXXX       
+  XXXXXXXXXX        
+  XXXXXXXXX         
+XXXXXXXXXXXXXXXXXX  
+X   XXX XX   xXX     
+'''
