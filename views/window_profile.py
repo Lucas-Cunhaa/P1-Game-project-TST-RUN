@@ -20,6 +20,3 @@ def window_profile(stdscr, win):
     win.refresh()
      
     win.getch()
-    
-             
-
