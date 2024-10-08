@@ -2,7 +2,7 @@ import curses
 
 def window_profile(stdscr, win, name_profile):
     from .window_home import home_page
-    from controler.name_profile import new_name
+    from controllers.name_profile import new_name
     stdscr.clear()
     stdscr.refresh()
     win.clear()

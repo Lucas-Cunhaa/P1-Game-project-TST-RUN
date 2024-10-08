@@ -1,8 +1,7 @@
 import time
 
 def jump(stdscr, name_profile, player_x, player_y, name_x, max_width):
-    from controler.game_control import game_control
-    stdscr.addstr()
+    from controllers.game_control import game_control
     stdscr.addstr(player_y, player_x, " ")
     time.sleep(0.035)
     stdscr.addstr(player_y - 2, player_x, "🦖")

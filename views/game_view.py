@@ -1,7 +1,8 @@
 def game_view(stdscr, name_profile):
-    from views.logo import name_game
-    from views.logo import profile_image
-    from controler.game_control import game_control
+    from assests.logo import name_game
+    from assests.logo import profile_image
+    from controllers.game_control import game_control
+
     stdscr.clear()
 
     max_height, max_width = stdscr.getmaxyx()
