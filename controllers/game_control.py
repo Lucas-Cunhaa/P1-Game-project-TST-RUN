@@ -1,7 +1,7 @@
 import time
 import curses
 
-def game_control(stdscr, name_profile, player_x, player_y, name_x, max_width):
+def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_width):
     from .comands.jump import jump 
     from .comands.left import left
     from .comands.right import right
@@ -11,9 +11,8 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, max_width):
     while True:
         key = stdscr.getch()
         
-        if key == KEY_SPACE: jump(stdscr, name_profile, player_x, player_y, name_x, max_width)
-        elif key == curses.KEY_LEFT: left(stdscr, name_profile, player_x, player_y, name_x, max_width) 
-        elif key == curses.KEY_RIGHT: right(stdscr, name_profile, player_x, player_y, name_x, max_width)
+        if key == KEY_SPACE: jump(stdscr, name_profile, player_x, player_y, name_x, name_y, max_width)
+        elif key == curses.KEY_LEFT: left(stdscr, name_profile, player_x, player_y, name_x, name_y, max_width) 
+        elif key == curses.KEY_RIGHT: right(stdscr, name_profile, player_x, player_y, name_x, name_y, max_width)
         stdscr.refresh()
-    
     
