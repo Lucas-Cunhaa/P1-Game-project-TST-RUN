@@ -21,13 +21,11 @@ def game_view(stdscr, name_profile):
     start_y = y - 2
 
     stdscr.addstr(x, x, name_game) # logo name
-    #stdscr.addstr(x, max_width // 2, jorge) # logo name
     stdscr.addstr(start_y - 3, x, name_profile) # name_profile
-    jorge_start_x = 1 # Próximo ao final da linha
-    jorge_start_y = 9# Posição na última linha (ou próximo dela)
-
-    # Adiciona o caractere "jorge" na parte inferior direita da janela
-    stdscr.addstr(jorge_start_y, jorge_start_x, jorge)  # Elemento "jorge"
+    
+    jorge_start_x = 1 
+    jorge_start_y = 9
+    stdscr.addstr(jorge_start_y, jorge_start_x, jorge)  # jorge
 
     stdscr.addstr(start_y, start_x, "🤓") # player_person
     stdscr.addstr(y, x, lines) # floor
