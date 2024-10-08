@@ -15,14 +15,10 @@ def new_name(win, mensage, stdscr, name_profile):
         KEY_ESC = 27
         KEY_BACKSPACE = 8
         KEY_ENTER = 10
-        if key == KEY_ESC: 
-            return home_page(stdscr, name_profile, start_game= False)
-        elif key == KEY_BACKSPACE:
-            new_name = new_name[:-1]
-        elif key == KEY_ENTER: 
-            break
-        else:
-            if chr(key).isprintable():
-                new_name += chr(key)
+
+        if key == KEY_ESC: return home_page(stdscr, name_profile, start_game= False)
+        if key == KEY_ENTER:  return new_name
+        if key == KEY_BACKSPACE: new_name = new_name[:-1]
+        if chr(key).isprintable(): new_name += chr(key)
     
-    return new_name
+   
