@@ -5,8 +5,8 @@ def right(stdscr, name_profile, player_x, player_y, name_x, name_y, max_width):
     stdscr.addstr(player_y, player_x, " ")
     stdscr.addstr(name_y, name_x, " " * len(name_profile))
     time.sleep(0.02)
-    player_x += 1
-    name_x += 1
+    player_x += 5
+    name_x += 5
     stdscr.addstr(player_y, player_x, "🦖")
     stdscr.addstr(name_y, name_x, name_profile)
     stdscr.refresh()
