@@ -20,9 +20,8 @@ def new_name(win, mensage, stdscr, name_profile):
         elif key == KEY_BACKSPACE:
             new_name = new_name[:-1]
         elif key == KEY_ENTER: 
-            break
+            return new_name
         else:
             if chr(key).isprintable():
                 new_name += chr(key)
     
-    return new_name
