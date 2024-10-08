@@ -26,7 +26,5 @@ def home_page(stdscr, name_profile, start_game):
     KEY_2 = 50
     while True: 
         key = win.getch()
-        if key == KEY_2: 
-            return window_profile(stdscr, win, name_profile)
-        elif key == KEY_1: 
-            return game_window(stdscr, win, name_profile)    
+        if key == KEY_2: return window_profile(stdscr, win, name_profile)
+        if key == KEY_1: return game_window(stdscr, win, name_profile)    
