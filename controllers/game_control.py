@@ -16,7 +16,7 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_w
         stdscr.addstr(player_y, max_width - 1, "  ")
         time.sleep(interval)
         max_width -= subt
-        stdscr.addstr(player_y, max_width - 1, "🪵")
+        stdscr.addstr(player_y, max_width - 1, "❌")
         stdscr.refresh()
     
         key = stdscr.getch()
