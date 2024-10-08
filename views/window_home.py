@@ -3,7 +3,7 @@ import curses
 def home_page(stdscr, name_profile, start_game):
     from .window_profile import window_profile 
     from .window_game import game_window 
-    if start_game == True: return
+    if start_game == True: return name_profile
     stdscr.clear()
     
     max_height, max_width = stdscr.getmaxyx()
@@ -27,4 +27,4 @@ def home_page(stdscr, name_profile, start_game):
     while True: 
         key = win.getch()
         if key == KEY_2: return window_profile(stdscr, win, name_profile)
-        if key == KEY_1: return game_window(stdscr, win, name_profile)    
+        if key == KEY_1: return game_window(stdscr, win, name_profile)   

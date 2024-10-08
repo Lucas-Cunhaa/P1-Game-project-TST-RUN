@@ -21,4 +21,3 @@ def new_name(win, mensage, stdscr, name_profile):
         if key == KEY_BACKSPACE: new_name = new_name[:-1]
         if chr(key).isprintable(): new_name += chr(key)
     
-   
