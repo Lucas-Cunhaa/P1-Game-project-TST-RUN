@@ -11,16 +11,17 @@ def game_view(stdscr, name_profile):
     y = max_height - 2
     x = 1
     start_x = (len(name_profile) // 2) - 1
+    start_y = y - 2
 
-    stdscr.addstr(x, x, name_game)
-    stdscr.addstr(y - 5, x, name_profile)
-    stdscr.addstr(y - 2, start_x, "🦖")
-    stdscr.addstr(y, x, lines)
-    stdscr.addstr(y + 1, x, fire)
+    stdscr.addstr(x, x, name_game) # logo name
+    stdscr.addstr(start_y - 3, x, name_profile) # nema_profile
+    stdscr.addstr(start_y, start_x, "🦖") # player_person
+    stdscr.addstr(y, x, lines) # floor
+    stdscr.addstr(y + 1, x, fire) # fire of the game
 
     stdscr.refresh()
 
-    game_control(stdscr, name_profile, profile_image, start_x, x, y, max_width)
+    game_control(stdscr, name_profile, start_x, start_y, x, max_width)
         
         
        

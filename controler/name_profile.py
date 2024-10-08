@@ -10,8 +10,8 @@ def new_name(win, mensage, stdscr, name_profile):
         win.addstr(1, len(mensage) + 1, new_name)
         win.refresh()
 
-        key = win.getch() 
-        
+        key = win.getch()
+    
         KEY_ESC = 27
         KEY_BACKSPACE = 8
         KEY_ENTER = 10
