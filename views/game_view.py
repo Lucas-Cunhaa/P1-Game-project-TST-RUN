@@ -21,9 +21,7 @@ def game_view(stdscr, name_profile):
     start_y = y - 2
 
     stdscr.addstr(x, x, name_game) # logo name
-    #stdscr.addstr(x, max_width // 2, jorge) # logo name
     stdscr.addstr(start_y - 3, x, name_profile) # name_profile
-
     stdscr.addstr(start_y, start_x, "🦖") # player_person
     stdscr.addstr(y, x, lines) # floor
     stdscr.addstr(y + 1, x, fire) # fire of the game
@@ -34,4 +32,3 @@ def game_view(stdscr, name_profile):
     game_control(stdscr, name_profile, start_x, start_y, x, start_y - 3, max_width)
 
 
-    
