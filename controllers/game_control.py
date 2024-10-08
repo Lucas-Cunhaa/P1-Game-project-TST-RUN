@@ -26,7 +26,7 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_w
         if key == curses.KEY_RIGHT: right(stdscr, name_profile, player_x, player_y, name_x, name_y, max_width)
         stdscr.refresh()
 
-        if interval > 0.25: interval = interval * 0.95
+        if interval > 0.25: interval *= 0.95
         if player_x == max_width: break
 
     
