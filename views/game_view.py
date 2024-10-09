@@ -3,7 +3,6 @@ import curses
 def game_view(stdscr, name_profile):
     from assets.logo import name_game
     from assets.logo import profile_image
-    from assets.jorge import jorge
     from assets.wilkerson import wilkerson
     from controllers.game_control import game_control
     
@@ -23,9 +22,9 @@ def game_view(stdscr, name_profile):
     stdscr.addstr(x, x, name_game) # logo name
     stdscr.addstr(start_y - 3, x, name_profile) # name_profile
 
-    jorge_start_x = 1 
-    jorge_start_y = 9
-    stdscr.addstr(jorge_start_y, jorge_start_x, jorge)  # jorge
+    wilkerson_start_x = 1 
+    wilkerson_start_y = 9
+    stdscr.addstr(wilkerson_start_y,  wilkerson_start_x, wilkerson)  #  wilkerson
 
     stdscr.addstr(start_y, start_x, "🤓") # player_person
     stdscr.addstr(y, x, lines) # floor

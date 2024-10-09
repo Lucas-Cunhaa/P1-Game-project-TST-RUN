@@ -11,6 +11,7 @@ def window_profile(stdscr, win, name_profile):
     mensage = "Your profile: > " 
     new_name = new_name(win, mensage, stdscr, name_profile)
     if new_name.isprintable() and new_name != "": name_profile = new_name
+    
     win.addstr(3, 1, f"Name Profile: {name_profile}")
     win.addstr(4, 1, "Change your avatar")
     win.addstr(5, 1, "Change your name")

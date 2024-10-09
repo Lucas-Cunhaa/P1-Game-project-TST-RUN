@@ -26,12 +26,12 @@ def lose_window(stdscr, win, name_profile):
     stdscr.addstr(jorge_start_y, jorge_start_x, jorge)
     win.addstr(5, 5, "Press 'enter' to restart the game")
     win.refresh()
-
-    KEY_ESC = 27 
+    
     KEY_ENTER = 10
     while True:
         key = win.getch()
-        if key == KEY_ESC: return home_page(stdscr, name_profile, start_game= False)
+        start_game = True if key == KEY_ENTER else False
+        return home_page(stdscr, name_profile, start_game)
         #if key == KEY_ENTER: return (stdscr, name_profile, start_game= True)
 
 
