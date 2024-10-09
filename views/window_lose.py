@@ -10,9 +10,13 @@ def lose_window(stdscr, name_profile):
 
     stdscr.clear()
 
+    #stdscr.addstr(jorge_start_y, jorge_start_x, jorge)
+    text_window = f"You were impugned by jorge.py {name_profile}"
+
+    width = len(text_window) + 2
+    height = 10  
     max_height, max_width = stdscr.getmaxyx()
-    height = 10 
-    width = 40   
+    
     start_y = (max_height - height) // 2  
     start_x = (max_width - width) // 2
     
@@ -24,17 +28,20 @@ def lose_window(stdscr, name_profile):
     jorge_start_y = 5
 
     delay = 0.1
-    text_window = f"You were impugned by jorge.py {name_profile}"
-    
+
+    i = 0
     for char in text_window:
-        stdscr.addch(y, x, char, curses.color_pair(1))
-        stdscr.refresh()
-        time.sleep(delay)  
+        win.addch(y, x + i, char, curses.color_pair(1))
+        win.refresh()
+        time.sleep(delay) 
+        i += 1
 
-    stdscr.addstr(jorge_start_y, jorge_start_x, jorge)
-    win.addstr(5, 5, "Press 'enter' to restart the game")
+    text = "Press 'enter' to restart the game"
+    x_text = (width // 2) - (len(text) // 2)
+    y_text = height // 2
+    win.addstr(y_text, x_text, text)
     win.refresh()
-
+    
     KEY_ENTER = 10
     while True:
         key = win.getch()

@@ -20,7 +20,7 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_w
         if key == curses.KEY_RIGHT: right(stdscr, name_profile, player_x, player_y, name_x, name_y, max_width)
 
         stdscr.refresh()
-
-        if player_x == max_width: return lose_window(stdscr, name_profile)
+        return lose_window(stdscr, name_profile)
+        #if player_x == max_width: 
 
     
