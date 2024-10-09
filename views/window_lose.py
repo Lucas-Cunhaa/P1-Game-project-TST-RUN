@@ -4,16 +4,22 @@ import time
 def lose_window(stdscr, name_profile):
     from .window_home import home_page
     from assets.jorge import jorge
+    from assets.dalton import dalton
 
     curses.start_color()
     curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
-    
+
     stdscr.clear()
 
     jorge_start_x = 1
     jorge_start_y = 1
     stdscr.addstr(jorge_start_y, jorge_start_x, jorge, curses.color_pair(1))
     stdscr.refresh()
+
+    #dalton_start_x = 200
+    #dalton_start_y = 1
+    #stdscr.addstr(dalton_start_y, dalton_start_x, dalton, curses.color_pair(1))
+    #stdscr.refresh()
 
     text_window = f"You were impugned by jorge.py {name_profile}"
     width = len(text_window) + 2
