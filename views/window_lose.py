@@ -10,10 +10,14 @@ def lose_window(stdscr, name_profile):
 
     stdscr.clear()
 
-    height, width = 7, 40
-    start_y, start_x = (curses.LINES - height) // 2, (curses.COLS - width) // 2
+    max_height, max_width = stdscr.getmaxyx()
+    height = 10 
+    width = 40   
+    start_y = (max_height - height) // 2  
+    start_x = (max_width - width) // 2
+    
     win = curses.newwin(height, width, start_y, start_x)
-    win.box()  
+    win.box()
 
     x, y = 1, 1
     jorge_start_x = 5
