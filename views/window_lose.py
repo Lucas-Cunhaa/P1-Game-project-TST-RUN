@@ -1,7 +1,7 @@
 import curses
 import time 
 
-def lose_window(stdscr, win, name_profile):
+def lose_window(stdscr, name_profile):
     from .window_home import home_page
     from assets.jorge import jorge
 
@@ -9,7 +9,11 @@ def lose_window(stdscr, win, name_profile):
     curses.init_pair(1, curses.COLOR_RED, curses.COLOR_WHITE)
 
     stdscr.clear()
-    win.box()
+
+    height, width = 7, 40
+    start_y, start_x = (curses.LINES - height) // 2, (curses.COLS - width) // 2
+    win = curses.newwin(height, width, start_y, start_x)
+    win.box()  
 
     x, y = 1, 1
     jorge_start_x = 5
@@ -26,7 +30,7 @@ def lose_window(stdscr, win, name_profile):
     stdscr.addstr(jorge_start_y, jorge_start_x, jorge)
     win.addstr(5, 5, "Press 'enter' to restart the game")
     win.refresh()
-    
+
     KEY_ENTER = 10
     while True:
         key = win.getch()
