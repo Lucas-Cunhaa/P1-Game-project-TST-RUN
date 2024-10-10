@@ -5,7 +5,8 @@ def game_view(stdscr, name_profile):
     from assets.logo import profile_image
     from assets.wilkerson import wilkerson
     from controllers.game_control import game_control
-    
+    from controllers.display_ascci_image import display_ascii
+
     curses.start_color()
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
     stdscr.clear()
@@ -24,7 +25,8 @@ def game_view(stdscr, name_profile):
 
     wilkerson_start_x = 1 
     wilkerson_start_y = 9
-    stdscr.addstr(wilkerson_start_y,  wilkerson_start_x, wilkerson)  #  wilkerson
+    display_ascii(stdscr, wilkerson_start_y, wilkerson_start_x, wilkerson, 1)
+
     stdscr.addstr(start_y, start_x, "🤓") # player_person
 
     for i in range(y):

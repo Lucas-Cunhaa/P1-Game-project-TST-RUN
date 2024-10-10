@@ -3,10 +3,21 @@ import curses
 def home_page(stdscr, name_profile, start_game):
     from .window_profile import window_profile 
     from .window_game import game_window 
+    from controllers.display_ascci_image import display_ascii
+    from assets.dalton import dalton
+
+    curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
+
     if start_game == True: return name_profile
     stdscr.clear()
     
     max_height, max_width = stdscr.getmaxyx()
+
+    dalton_start_x = 1
+    dalton_start_y = 1
+    display_ascii(stdscr, dalton_start_y, dalton_start_x, dalton, 1)
+
+    delay = 0.05
 
     height = 10 
     width = 40   
