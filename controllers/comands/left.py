@@ -10,4 +10,4 @@ def left(stdscr, name_profile, player_x, player_y, name_x, name_y, max_height, m
     stdscr.addstr(player_y, player_x[0], "🤓")
     stdscr.addstr(name_y, name_x[0], name_profile)
     stdscr.refresh()
-    # return game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_height, max_width)
+    
