@@ -15,7 +15,7 @@ def lose_window(stdscr, name_profile):
     jorge_y = 1
     display_ascii(stdscr, jorge_y, jorge_x, jorge, 1)
 
-    text_window = f"Hey {name_profile}, you were impugned by jorge.py "
+    text_window = f"Hey {name_profile}, you were impugned by jorge.py 😈"
     width = len(text_window) + 2
     height = 10  
     max_height, max_width = stdscr.getmaxyx()
