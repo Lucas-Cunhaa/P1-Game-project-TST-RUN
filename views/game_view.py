@@ -25,13 +25,8 @@ def game_view(stdscr, name_profile):
 
     wilkerson_start_x = 1 
     wilkerson_start_y = 9
-<<<<<<< HEAD
-    stdscr.addstr(wilkerson_start_y,  wilkerson_start_x, wilkerson)  #  wilkerson
+    stdscr.addstr(wilkerson_start_y,  wilkerson_start_x, wilkerson)  # wilkerson
     stdscr.addstr(y, 1, "0x ✅")
-=======
-    display_ascii(stdscr, wilkerson_start_y, wilkerson_start_x, wilkerson, 1)
-
->>>>>>> 1e5e60bbee857ba0d62986e959f8d1295573acea
     stdscr.addstr(start_y, start_x, "🤓") # player_person
 
     for i in range(y):
