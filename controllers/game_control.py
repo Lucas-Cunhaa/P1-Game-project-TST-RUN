@@ -4,10 +4,8 @@ import sys
 import random
 
 NUM_X = int(sys.argv[1] if len(sys.argv) > 1 else 100)
-interval = 0.15
 
-def rain_x(stdscr, rain_obj, max_height, tokens):
-    global interval
+def rain_x(stdscr, rain_obj, max_height, tokens, interval):
     for X in rain_obj:
         line = X[0]
         col = X[1]
@@ -19,8 +17,8 @@ def rain_x(stdscr, rain_obj, max_height, tokens):
                         
         stdscr.refresh()
         
-    if interval > 0.07: interval *= 0.99 
-    time.sleep(interval)
+    if interval[0] > 0.07: interval[0] *= 0.99 
+    time.sleep(interval[0])
     for X in rain_obj:
         line = X[0]
         col = X[1]
@@ -37,12 +35,14 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
     from .comands.jump import jump 
     from .comands.left import left
     from .comands.right import right
-
+    
+    interval = 0.15
     KEY_SPACE = 32
     stdscr.keypad(True) 
     stdscr.nodelay(True)
     rain_obj = []
     tokens = {}
+    interval = [interval]
     player_x = [player_x]
     name_x = [name_x]
     p1_test = 0
@@ -55,7 +55,7 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
         if key == curses.KEY_LEFT: left(stdscr, name_profile, player_x, player_y, name_x, name_y, max_height, max_width) 
         if key == curses.KEY_RIGHT: right(stdscr, name_profile, player_x, player_y, name_x, name_y, max_height, max_width)
 
-        rain_x(stdscr, rain_obj, max_height, tokens)
+        rain_x(stdscr, rain_obj, max_height, tokens, interval)
         for X in rain_obj:
             if (player_y - 1 <= X[0] <= player_y + 1) and (player_x[0] - 1 <= X[1] <= player_x[0] + 1):
                 return lose_window(stdscr, name_profile)
