@@ -17,7 +17,7 @@ def lose_window(stdscr, name_profile):
     display_ascii(stdscr, jorge_y, jorge_x, jorge, 1)
 
     text_window = f"Hey {name_profile}, you were impugned by jorge.py 😈"
-    width = len(text_window) + 2
+    width = len(text_window) + 4
     height = 10  
     max_height, max_width = stdscr.getmaxyx()
     
@@ -26,11 +26,11 @@ def lose_window(stdscr, name_profile):
     
     win = curses.newwin(height, width, start_y, start_x)
     win.box()
-    
+
     x, y = 1, 1
     delay = 0.06
     display_text(win, y, x, text_window, delay, 1)
-
+    win.refresh()
     text = "Press 'enter' to restart the game"
     x_text = (width // 2) - (len(text) // 2)
     y_text = height // 2
@@ -38,11 +38,14 @@ def lose_window(stdscr, name_profile):
     win.refresh()
 
     KEY_ENTER = 10
+    KEY_ENTER = 10
     while True:
         key = win.getch()
-        start_game = True if key == KEY_ENTER else False
-        return home_page(stdscr, name_profile, start_game)
-        #if key == KEY_ENTER: return (stdscr, name_profile, start_game= True)
+        if key == KEY_ENTER:
+            start_game = True  
+            return home_page(stdscr, name_profile, start_game)  
+
+ 
 
 
 
