@@ -35,15 +35,19 @@ def lose_window(stdscr, name_profile):
     x_text = (width // 2) - (len(text) // 2)
     y_text = height // 2
     win.addstr(y_text, x_text, text)
+    text_2 = "Press 'esc' to finish the game"
+    win.addstr(y_text + 1, x_text + 2, text_2)
+
     win.refresh()
 
     KEY_ENTER = 10
-    KEY_ENTER = 10
+    KEY_ESC = 27
     while True:
         key = win.getch()
         if key == KEY_ENTER:
             start_game = True  
             return home_page(stdscr, name_profile, start_game)  
+        if key == KEY_ESC: return "__finish__"
 
  
 

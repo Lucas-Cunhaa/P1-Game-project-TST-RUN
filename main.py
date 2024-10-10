@@ -5,7 +5,11 @@ from views.game_view import game_view
 
 def main(stdscr):
     name_profile = "Dalton (DEFAULT)"
-    name_profile = home_page(stdscr, name_profile, start_game= False)
-    return game_view(stdscr, name_profile)
+    while True:
+        name_profile = home_page(stdscr, name_profile, start_game= False)
+        result = game_view(stdscr, name_profile)
+        if result == "__finish__": break
+        
+    print("voce finalizou o jogo: TST-RUN")
      
 curses.wrapper(main)

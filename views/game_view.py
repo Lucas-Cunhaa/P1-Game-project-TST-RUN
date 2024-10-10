@@ -40,6 +40,6 @@ def game_view(stdscr, name_profile):
 
     stdscr.refresh()
 
-    game_control(stdscr, name_profile, start_x, start_y, x, start_y - 3, max_height, max_width)
+    return game_control(stdscr, name_profile, start_x, start_y, x, start_y - 3, max_height, max_width)
 
 
