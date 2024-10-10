@@ -4,8 +4,10 @@ import sys
 import random
 
 NUM_X = int(sys.argv[1] if len(sys.argv) > 1 else 50)
+interval = 0.15
 
 def chuva_x(stdscr, chuva_obj, max_height):
+    global interval
     for X in chuva_obj:
         line = X[0]
         col = X[1]
@@ -16,7 +18,8 @@ def chuva_x(stdscr, chuva_obj, max_height):
             raise(Exception(str(locals())))
         stdscr.refresh()
         
-    time.sleep(0.05)
+    if interval > 0.07: interval *= 0.99 
+    time.sleep(interval)
     for X in chuva_obj:
         line = X[0]
         col = X[1]
@@ -36,7 +39,6 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
     KEY_SPACE = 32
     stdscr.keypad(True) 
     stdscr.nodelay(True)
-    # obj = "❌"
     chuva_obj = []
     player_x = [player_x]
     name_x = [name_x]
@@ -49,11 +51,15 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
         if key == curses.KEY_RIGHT: right(stdscr, name_profile, player_x, player_y, name_x, name_y, max_height, max_width)
 
         chuva_x(stdscr, chuva_obj, max_height)
+        for X in chuva_obj:
+            if (player_y - 1 <= X[0] <= player_y + 1) and (player_x[0] - 1 <= X[1] <= player_x[0] + 1):  # Check if falling X hits player
+                return lose_window(stdscr, name_profile)
+
         if len(chuva_obj) < NUM_X:
             lin, col = 0, random.randint(75, max_width - 3)
             chuva_obj.append([lin, col])
         stdscr.refresh()
-        # return lose_window(stdscr, name_profile)
+        
         
 
     
