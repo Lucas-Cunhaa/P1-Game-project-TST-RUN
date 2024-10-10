@@ -3,8 +3,6 @@ import curses
 import sys
 import random
 
-NUM_X = int(sys.argv[1] if len(sys.argv) > 1 else 100)
-
 def rain_x(stdscr, rain_obj, max_height, tokens, interval):
     for X in rain_obj:
         line = X[0]
@@ -17,7 +15,7 @@ def rain_x(stdscr, rain_obj, max_height, tokens, interval):
                         
         stdscr.refresh()
         
-    if interval[0] > 0.07: interval[0] *= 0.99 
+    if interval[0] > 0.08: interval[0] *= 0.99 
     time.sleep(interval[0])
     for X in rain_obj:
         line = X[0]
@@ -36,7 +34,8 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
     from .comands.left import left
     from .comands.right import right
     
-    interval = 0.15
+    NUM_X = int(sys.argv[1] if len(sys.argv) > 1 else (max_width - player_x + 5))
+    interval = 0.18
     KEY_SPACE = 32
     stdscr.keypad(True) 
     stdscr.nodelay(True)
@@ -47,7 +46,6 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
     name_x = [name_x]
     p1_test = 0
     
-
     while True:
         key = stdscr.getch()
         
