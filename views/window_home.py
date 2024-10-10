@@ -4,6 +4,7 @@ def home_page(stdscr, name_profile, start_game):
     from .window_profile import window_profile 
     from .window_game import game_window 
     from controllers.display_ascci_image import display_ascii
+    from controllers.display_text import display_text
     from assets.dalton import dalton
 
     curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
@@ -17,8 +18,6 @@ def home_page(stdscr, name_profile, start_game):
     dalton_start_y = 1
     display_ascii(stdscr, dalton_start_y, dalton_start_x, dalton, 1)
 
-    delay = 0.05
-
     height = 10 
     width = 40   
     start_y = (max_height - height) // 2  
@@ -31,6 +30,11 @@ def home_page(stdscr, name_profile, start_game):
     win.addstr(1, 1, "GAME: TST-RUN")
     win.addstr(3, 1, "Press '1' to the window_game")
     win.addstr(4, 1, "Press '2' to change profile")
+
+    game_credits = "Created by Lucas Cunha and Joao Neto"
+    delay = 0.08
+    display_text(win, 8, 1, game_credits, delay, 1)
+    win.addstr(8, 1, "Created by Lucas Cunha and Joao Neto")
     win.refresh()
     
     KEY_1 = 49
