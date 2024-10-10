@@ -77,8 +77,9 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
             if place not in tokens: 
                 tokens[place] = "✅"
                 stdscr.addstr(place[0], place[1], "✅")
-
-        stdscr.addstr(player_y, 1, f"{p1_test // 2} UNIT ✅")
+        
+        text_tokens = f"{p1_test // 2} UNIT ✅"
+        stdscr.addstr(player_y, 70 - len(text_tokens), text_tokens)
         if p1_test == 20: return win_window(stdscr, name_profile)
         stdscr.refresh()
         

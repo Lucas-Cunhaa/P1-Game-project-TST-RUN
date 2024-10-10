@@ -38,10 +38,6 @@ def game_view(stdscr, name_profile):
 
     stdscr.addstr(y, x, lines) # floor
     stdscr.addstr(y + 1, x, fire) # fire of the game
-    stdscr.addstr(start_y - 5, 1, "press '-->' to right")
-    stdscr.addstr(start_y - 4, 1, "press '<--' to left")
-    stdscr.addstr(start_y - 3, 1, "press '␣'(SPACE) to jump")
-
 
     stdscr.refresh()
 

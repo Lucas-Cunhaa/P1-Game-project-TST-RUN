@@ -1,4 +1,9 @@
-wilkerson = """                                                                                                                                   
+wilkerson = """   
+press '-->' to right
+press '<--' to left
+press '␣'(SPACE) to jump
+
+
                   :*@@@@@%%%*=:                  
                :%@@@@@@@@@@@@@%++=               
               %@@@@@@@@@@@@@@@@@@@%+             
