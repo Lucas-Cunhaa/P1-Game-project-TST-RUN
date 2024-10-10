@@ -3,7 +3,7 @@ import curses
 import sys
 import random
 
-NUM_X = int(sys.argv[1] if len(sys.argv) > 1 else 75)
+NUM_X = int(sys.argv[1] if len(sys.argv) > 1 else 100)
 interval = 0.15
 
 def chuva_x(stdscr, chuva_obj, max_height):
@@ -40,8 +40,11 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
     stdscr.keypad(True) 
     stdscr.nodelay(True)
     chuva_obj = []
+    tokens = {}
     player_x = [player_x]
     name_x = [name_x]
+    p1_test = 0
+    
 
     while True:
         key = stdscr.getch()
@@ -54,10 +57,26 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
         for X in chuva_obj:
             if (player_y - 1 <= X[0] <= player_y + 1) and (player_x[0] - 1 <= X[1] <= player_x[0] + 1):  # Check if falling X hits player
                 return lose_window(stdscr, name_profile)
-
+            
+        for T in tokens:
+            if (player_y - 1 <= T[0] <= player_y + 1) and (player_x[0] - 1 <= T[1] <= player_x[0] + 1):
+                p1_test += 1
+                stdscr.addstr(T[0], T[1], " ")
+                tokens.pop(T)
+                break
+                
         if len(chuva_obj) < NUM_X:
             lin, col = 0, random.randrange(75, max_width - 3, 5)
             chuva_obj.append([lin, col])
+
+        while len(tokens) < 2:
+            line_check, col_check = player_y, random.randrange(75, max_width - 3, 5)
+            place = (line_check, col_check)
+            if place not in tokens: 
+                tokens[place] = "✅"
+                stdscr.addstr(place[0], place[1], "✅")
+
+        stdscr.addstr(player_y, 1, f"{p1_test // 2} UNIT ✅")
         stdscr.refresh()
         
         
