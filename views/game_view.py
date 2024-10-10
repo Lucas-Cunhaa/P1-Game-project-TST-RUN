@@ -23,6 +23,12 @@ def game_view(stdscr, name_profile):
 
     stdscr.addstr(1, 1, name_game) # logo name
     stdscr.addstr(start_y - 3, x, name_profile) # name_profile
+    display_ascii(stdscr, 1, 1, name_game, 2)
+    
+    wilkerson_start_x = 20
+    wilkerson_start_y = 50
+    display_ascii(stdscr, wilkerson_start_y, wilkerson_start_x, wilkerson, 1)
+    stdscr.addstr(46, 14, "Sensei Wilkerson")
 
     wilkerson_start_x = 1 
     wilkerson_start_y = 9
