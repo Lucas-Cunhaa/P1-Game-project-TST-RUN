@@ -2,20 +2,22 @@ import curses
 
 def win_window(stdscr,name_profile):
     from .window_home import home_page
-    from assets.dalton import dalton
+    from assets.dalton_win import dalton_win
     from controllers.display_ascci_image import display_ascii
     from controllers.display_text import display_text
+    from controllers.restart_options import restart_options
+
     curses.start_color()
     curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
 
     stdscr.clear()
 
-    jorge_x = 1
-    jorge_y = 1
-    display_ascii(stdscr, jorge_y, jorge_x, dalton, 1)
+    dalton_win_x = 1
+    dalton_win_y = 1
+    display_ascii(stdscr, dalton_win_y, dalton_win_x, dalton_win, 1)
 
-    final_text = f"Hey {name_profile}, You’ve completed all the units for the first semester of Computer Science at UFCG and defated the enemy Jorge.py!"
-    width = len(final_text) + 4
+    win_text = f"Hey {name_profile}, you’ve completed all first-semester Computer Science units at UFCG and defeated Jorge.py!"
+    width = len(win_text) + 4
     height = 10  
     max_height, max_width = stdscr.getmaxyx()
     
@@ -25,18 +27,11 @@ def win_window(stdscr,name_profile):
     win = curses.newwin(height, width, start_y, start_x)
     win.box()
 
-    final_text_x, final_text_y = 1, 1
+    win_text_x,win_text_y = 1, 1
     delay = 0.06
-    display_text(win, final_text_y,  final_text_x, final_text, delay, 1)
-    win.refresh()
-    text = "Press 'enter' to restart the game"
-    x_text = (width // 2) - (len(text) // 2)
-    y_text = height // 2
-    win.addstr(y_text, x_text, text)
-    text_2 = "Press 'esc' to finish the game"
-    win.addstr(y_text + 1, x_text + 2, text_2)
+    display_text(win,win_text_y, win_text_x, win_text, delay, 1)
 
-    win.refresh()
+    restart_options(win, height, width)
 
     KEY_ENTER = 10
     KEY_ESC = 27

@@ -10,6 +10,6 @@ def main(stdscr):
         result = game_view(stdscr, name_profile)
         if result == "__finish__": break
         
-    print("voce finalizou o jogo: TST-RUN")
+    print("You have finished the TST RUN")
      
 curses.wrapper(main)
