@@ -3,7 +3,7 @@ import curses
 import sys
 import random
 
-NUM_X = int(sys.argv[1] if len(sys.argv) > 1 else 50)
+NUM_X = int(sys.argv[1] if len(sys.argv) > 1 else 75)
 interval = 0.15
 
 def chuva_x(stdscr, chuva_obj, max_height):
@@ -56,7 +56,7 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
                 return lose_window(stdscr, name_profile)
 
         if len(chuva_obj) < NUM_X:
-            lin, col = 0, random.randint(75, max_width - 3)
+            lin, col = 0, random.randrange(75, max_width - 3, 5)
             chuva_obj.append([lin, col])
         stdscr.refresh()
         
