@@ -1,22 +1,21 @@
 import curses
-import time 
 
-def lose_window(stdscr, name_profile):
+def win_window(stdscr,name_profile):
     from .window_home import home_page
-    from assets.jorge import jorge
+    from assets.dalton import dalton
     from controllers.display_ascci_image import display_ascii
     from controllers.display_text import display_text
 
     curses.start_color()
-    curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
+    curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
 
     stdscr.clear()
 
     jorge_x = 1
     jorge_y = 1
-    display_ascii(stdscr, jorge_y, jorge_x, jorge, 1)
+    display_ascii(stdscr, jorge_y, jorge_x, dalton, 1)
 
-    text_window = f"Hey {name_profile}, you were impugned by jorge.py 😈"
+    text_window = f"Hey {name_profile}, You’ve completed all the units for the first semester of Computer Science at UFCG and defated the enemy Jorge.py!"
     width = len(text_window) + 4
     height = 10  
     max_height, max_width = stdscr.getmaxyx()
@@ -48,8 +47,3 @@ def lose_window(stdscr, name_profile):
             start_game = True  
             return home_page(stdscr, name_profile, start_game)  
         if key == KEY_ESC: return "__finish__"
-
- 
-
-
-

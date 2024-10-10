@@ -16,13 +16,14 @@ def game_view(stdscr, name_profile):
 
     x = 75
     lines = "_" * ((max_width - 2) - x + 2)
-    fire = "🔥" * (((max_width - 2) // 2) - x)
+    fire = "🔥" * (((max_width + x - 1) // 2) - x)
     y = max_height - 2
-    start_x = (len(name_profile) // 2) + x  - 2
+    start_x = x + 5
     start_y = y - 1
+    name_x = start_x - (len(name_profile) // 2) + 1
 
     stdscr.addstr(1, 1, name_game) # logo name
-    stdscr.addstr(start_y - 3, x, name_profile) # name_profile
+    stdscr.addstr(start_y - 3, name_x, name_profile) # name_profile
     display_ascii(stdscr, 1, 1, name_game, 2)
     
     wilkerson_start_x = 20
@@ -40,6 +41,6 @@ def game_view(stdscr, name_profile):
 
     stdscr.refresh()
 
-    game_control(stdscr, name_profile, start_x, start_y, x, start_y - 3, max_height, max_width)
+    return game_control(stdscr, name_profile, start_x, start_y, name_x, start_y - 3, max_height, max_width)
 
 
