@@ -6,16 +6,17 @@ import random
 NUM_X = int(sys.argv[1] if len(sys.argv) > 1 else 100)
 interval = 0.15
 
-def chuva_x(stdscr, chuva_obj, max_height):
+def chuva_x(stdscr, chuva_obj, max_height, tokens):
     global interval
     for X in chuva_obj:
         line = X[0]
         col = X[1]
         try: 
-            if line < max_height - 3:
+            if line < max_height - 3 and (line, col) not in tokens:
                 stdscr.addstr(line, col, "❌")
         except:
             raise(Exception(str(locals())))
+                        
         stdscr.refresh()
         
     if interval > 0.07: interval *= 0.99 
@@ -25,12 +26,13 @@ def chuva_x(stdscr, chuva_obj, max_height):
         col = X[1]
         stdscr.addstr(line, col, " ")
         stdscr.refresh()
-        if line < max_height - 3:
+        if line < max_height - 3 and (line + 1, col) not in tokens:
             X[0] += 1
         else:
             X[0] = 0
 
 def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_height, max_width):
+    from views.window_win import win_window
     from views.window_lose import lose_window
     from .comands.jump import jump 
     from .comands.left import left
@@ -53,7 +55,7 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
         if key == curses.KEY_LEFT: left(stdscr, name_profile, player_x, player_y, name_x, name_y, max_height, max_width) 
         if key == curses.KEY_RIGHT: right(stdscr, name_profile, player_x, player_y, name_x, name_y, max_height, max_width)
 
-        chuva_x(stdscr, chuva_obj, max_height)
+        chuva_x(stdscr, chuva_obj, max_height, tokens)
         for X in chuva_obj:
             if (player_y - 1 <= X[0] <= player_y + 1) and (player_x[0] - 1 <= X[1] <= player_x[0] + 1):  # Check if falling X hits player
                 return lose_window(stdscr, name_profile)
@@ -77,6 +79,7 @@ def game_control(stdscr, name_profile, player_x, player_y, name_x, name_y, max_h
                 stdscr.addstr(place[0], place[1], "✅")
 
         stdscr.addstr(player_y, 1, f"{p1_test // 2} UNIT ✅")
+        if p1_test == 20: return win_window(stdscr, name_profile)
         stdscr.refresh()
         
         

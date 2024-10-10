@@ -16,7 +16,7 @@ def game_view(stdscr, name_profile):
 
     x = 75
     lines = "_" * ((max_width - 2) - x + 2)
-    fire = "🔥" * (((max_width - 2) // 2) - x)
+    fire = "🔥" * (((max_width + x - 1) // 2) - x)
     y = max_height - 2
     start_x = (len(name_profile) // 2) + x  - 2
     start_y = y - 1
