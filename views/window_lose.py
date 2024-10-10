@@ -15,7 +15,7 @@ def lose_window(stdscr, name_profile):
     jorge_y = 1
     display_ascii(stdscr, jorge_y, jorge_x, jorge, 1)
 
-    text_window = f"You were impugned by jorge.py {name_profile}"
+    text_window = f"Hey {name_profile}, you were impugned by jorge.py "
     width = len(text_window) + 2
     height = 10  
     max_height, max_width = stdscr.getmaxyx()
@@ -27,10 +27,7 @@ def lose_window(stdscr, name_profile):
     win.box()
 
     x, y = 1, 1
-  
-
-    delay = 0.1
-
+    delay = 0.06
     i = 0
     for char in text_window:
         win.addch(y, x + i, char, curses.color_pair(1))
