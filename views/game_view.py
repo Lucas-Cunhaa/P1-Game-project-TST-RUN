@@ -8,7 +8,8 @@ def game_view(stdscr, name_profile):
     from controllers.display_ascci_image import display_ascii
 
     curses.start_color()
-    curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
+    curses.init_pair(1, curses.COLOR_BLUE, curses.COLOR_BLACK)
+    curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_BLACK)
     stdscr.clear()
 
     max_height, max_width = stdscr.getmaxyx()
