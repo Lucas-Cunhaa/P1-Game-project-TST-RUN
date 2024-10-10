@@ -11,7 +11,9 @@ def lose_window(stdscr, name_profile):
 
     stdscr.clear()
 
-    display_ascii(stdscr, y, x, jorge, 1)
+    jorge_x = 1
+    jorge_y = 1
+    display_ascii(stdscr, jorge_y, jorge_x, jorge, 1)
 
     text_window = f"You were impugned by jorge.py {name_profile}"
     width = len(text_window) + 2

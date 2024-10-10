@@ -8,7 +8,8 @@ def game_view(stdscr, name_profile):
     from controllers.display_ascci_image import display_ascii
 
     curses.start_color()
-    curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
+    curses.init_pair(1, curses.COLOR_BLUE, curses.COLOR_BLACK)
+    curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_BLACK)
     stdscr.clear()
 
     max_height, max_width = stdscr.getmaxyx()
@@ -22,11 +23,13 @@ def game_view(stdscr, name_profile):
 
     stdscr.addstr(1, 1, name_game) # logo name
     stdscr.addstr(start_y - 3, x, name_profile) # name_profile
-
-    wilkerson_start_x = 1 
-    wilkerson_start_y = 9
+    display_ascii(stdscr, 1, 1, name_game, 2)
+    
+    wilkerson_start_x = 20
+    wilkerson_start_y = 50
     display_ascii(stdscr, wilkerson_start_y, wilkerson_start_x, wilkerson, 1)
-
+    stdscr.addstr(46, 15, "Sensei Wilkerson") 
+    
     stdscr.addstr(start_y, start_x, "🤓") # player_person
 
     for i in range(y):
