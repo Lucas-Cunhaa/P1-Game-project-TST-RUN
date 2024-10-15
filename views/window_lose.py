@@ -28,13 +28,15 @@ def lose_window(stdscr, name_profile):
     win.box()
 
     end_text_x,  end_text_y = 1, 1
-    delay = 0.06
+    delay = 0.06    
     display_text(win, end_text_y,  end_text_x, end_game_text, delay, 1)
 
     restart_options(win, height, width)
     
     KEY_ENTER = 10
     KEY_ESC = 27
+    win.nodelay(False)
+    
     while True:
         key = win.getch()
         if key == KEY_ENTER:
